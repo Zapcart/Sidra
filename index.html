@@ -8,25 +8,75 @@
   <style>
     body {
       font-family: 'Playfair Display', serif;
-      background: #1a1a1a; /* Black background for adult vibe */
+      background: linear-gradient(135deg, #ffe6f0, #ffccdd); /* Pink gradient background */
       margin: 0;
       padding: 0;
-      color: #d4af37; /* Gold text for premium feel */
+      color: #333; /* Darker text for readability */
+      position: relative;
+      overflow-x: hidden;
     }
+    body::before, body::after {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      pointer-events: none;
+    }
+    body::before {
+      background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><circle cx="50" cy="50" r="2" fill="rgba(255, 255, 255, 0.5)"/></svg>') repeat;
+      opacity: 0.1; /* Subtle texture */
+    }
+    body::after {
+      background: 
+        /* Hearts */
+        url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24"><path fill="rgba(255, 150, 150, 0.7)" d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>') 10% 5% no-repeat,
+        url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24"><path fill="rgba(255, 150, 150, 0.7)" d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>') 80% 10% no-repeat,
+        /* Stars */
+        url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"><path fill="rgba(135, 206, 235, 0.7)" d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>') 20% 15% no-repeat,
+        url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"><path fill="rgba(135, 206, 235, 0.7)" d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>') 70% 20% no-repeat;
+    }
+    .chains::before, .chains::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      width: 2px;
+      height: 150px;
+      background: rgba(255, 150, 150, 0.5);
+    }
+    .chains::before {
+      left: 10%;
+    }
+    .chains::after {
+      right: 10%;
+    }
+    .chains span {
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      background: rgba(255, 150, 150, 0.5);
+      border-radius: 50%;
+    }
+    .chains span:nth-child(1) { top: 30px; left: 9.5%; }
+    .chains span:nth-child(2) { top: 80px; left: 9.5%; }
+    .chains span:nth-child(3) { top: 30px; right: 9.5%; }
+    .chains span:nth-child(4) { top: 80px; right: 9.5%; }
     .header {
-      background: linear-gradient(135deg, #cc0033, #660033); /* Deep red gradient */
-      color: #d4af37;
+      background: transparent; /* No header background to let the body background show */
+      color: #cc0033; /* Dark pink text */
       padding: 40px 20px;
       text-align: center;
+      position: relative;
     }
     .profile-pic {
       width: 180px;
       height: 180px;
       border-radius: 50%;
       object-fit: cover;
-      border: 5px solid #d4af37;
+      border: 5px solid #ff99cc;
       margin-top: 20px;
-      box-shadow: 0 0 20px #cc0033; /* Glowing effect around profile pic */
+      box-shadow: 0 0 20px #ff99cc;
     }
     .plans, .videos, .testimonials, .faq, .footer, .contact, .social {
       padding: 30px 20px;
@@ -35,7 +85,7 @@
     }
     .plan-btn, .video-btn {
       display: inline-block;
-      background: linear-gradient(135deg, #cc0033, #d4af37); /* Red to gold gradient */
+      background: #ff66b2; /* Bright pink buttons */
       color: white;
       padding: 12px 25px;
       margin: 10px 0;
@@ -45,19 +95,19 @@
       font-weight: 700;
     }
     .plan-btn:hover, .video-btn:hover {
-      transform: scale(1.05); /* Slight zoom on hover */
+      transform: scale(1.05);
     }
     .video {
-      background: #2a2a2a; /* Darker background for videos */
-      border: 2px dashed #cc0033;
+      background: rgba(255, 255, 255, 0.1); /* Semi-transparent white */
+      border: 2px dashed #ff99cc;
       padding: 20px;
       text-align: center;
       margin: 15px 0;
       border-radius: 10px;
-      color: #d4af37;
+      color: #333;
     }
     h1 {
-      font-size: 48px; /* Larger heading for bold look */
+      font-size: 48px;
       margin: 10px 0;
     }
     h2 {
@@ -70,10 +120,11 @@
   </style>
 </head>
 <body>
-  <div class="header">
+  <div class="header chains">
+    <span></span><span></span><span></span><span></span>
     <img src="sidra.jpg" alt="Sidra Profile" class="profile-pic" />
     <h1>Sidra ✅ Verified Creator</h1>
-    <p>Unlock My Naughty Secrets – Exclusive for You</p>
+    <p>Unlock My Naughty Secrets – Exclusive for You 🐾</p>
   </div>
 
   <div class="plans">
@@ -81,7 +132,7 @@
     <a href="https://payments.cashfree.com/links?code=W8ltpktn8g90" class="plan-btn">Monthly - ₹999</a><br>
     <a href="https://payments.cashfree.com/links?code=x8ltpqu16vc0" class="plan-btn">Yearly - ₹4999</a><br>
     <a href="https://payments.cashfree.com/links?code=e8ltpuqqgvc0" class="plan-btn">Lifetime - ₹9999</a>
-    <p style="font-size: 14px; color: #999;">🔒 100% Secure Payments via Cashfree</p>
+    <p style="font-size: 14px; color: #666;">🔒 100% Secure Payments via Cashfree</p>
   </div>
 
   <div class="videos">
@@ -134,10 +185,10 @@
     <a href="https://twitter.com/sidraexclusive" style="color: #cc0033; margin: 0 10px;">Twitter</a>
   </div>
 
-  <div class="footer" style="text-align:center; font-size:14px; color:#888;">
+  <div class="footer" style="text-align:center; font-size:14px; color:#666;">
     © 2025 Sidra Exclusive. All Rights Reserved. | 
-    <a href="privacy.html" style="color: #888;">Privacy Policy</a> | 
-    <a href="terms.html" style="color: #888;">Terms of Service</a>
+    <a href="privacy.html" style="color: #666;">Privacy Policy</a> | 
+    <a href="terms.html" style="color: #666;">Terms of Service</a>
   </div>
 </body>
 </html>
