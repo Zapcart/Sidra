@@ -8,10 +8,10 @@
   <style>
     body {
       font-family: 'Playfair Display', serif;
-      background: linear-gradient(135deg, #ffe6f0, #ffccdd); /* Pink gradient background */
+      background: linear-gradient(135deg, #ffe6f0, #ffccdd);
       margin: 0;
       padding: 0;
-      color: #333; /* Darker text for readability */
+      color: #333;
       position: relative;
       overflow-x: hidden;
     }
@@ -26,14 +26,12 @@
     }
     body::before {
       background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><circle cx="50" cy="50" r="2" fill="rgba(255, 255, 255, 0.5)"/></svg>') repeat;
-      opacity: 0.1; /* Subtle texture */
+      opacity: 0.1;
     }
     body::after {
       background: 
-        /* Hearts */
         url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24"><path fill="rgba(255, 150, 150, 0.7)" d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>') 10% 5% no-repeat,
         url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24"><path fill="rgba(255, 150, 150, 0.7)" d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>') 80% 10% no-repeat,
-        /* Stars */
         url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"><path fill="rgba(135, 206, 235, 0.7)" d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>') 20% 15% no-repeat,
         url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"><path fill="rgba(135, 206, 235, 0.7)" d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>') 70% 20% no-repeat;
     }
@@ -45,12 +43,8 @@
       height: 150px;
       background: rgba(255, 150, 150, 0.5);
     }
-    .chains::before {
-      left: 10%;
-    }
-    .chains::after {
-      right: 10%;
-    }
+    .chains::before { left: 10%; }
+    .chains::after { right: 10%; }
     .chains span {
       position: absolute;
       width: 10px;
@@ -63,8 +57,8 @@
     .chains span:nth-child(3) { top: 30px; right: 9.5%; }
     .chains span:nth-child(4) { top: 80px; right: 9.5%; }
     .header {
-      background: transparent; /* No header background to let the body background show */
-      color: #cc0033; /* Dark pink text */
+      background: transparent;
+      color: #cc0033;
       padding: 40px 20px;
       text-align: center;
       position: relative;
@@ -80,42 +74,85 @@
     }
     .plans, .videos, .testimonials, .faq, .footer, .contact, .social {
       padding: 30px 20px;
-      max-width: 800px;
+      max-width: 1200px;
       margin: auto;
     }
     .plan-btn, .video-btn {
       display: inline-block;
-      background: #ff66b2; /* Bright pink buttons */
+      background: linear-gradient(135deg, #ff66b2, #cc0033);
       color: white;
       padding: 12px 25px;
       margin: 10px 0;
       text-decoration: none;
       border-radius: 30px;
-      transition: transform 0.3s;
+      transition: transform 0.3s, box-shadow 0.3s;
       font-weight: 700;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
     }
     .plan-btn:hover, .video-btn:hover {
-      transform: scale(1.05);
+      transform: scale(1.1);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
     }
     .video {
-      background: rgba(255, 255, 255, 0.1); /* Semi-transparent white */
+      background: rgba(255, 255, 255, 0.1);
       border: 2px dashed #ff99cc;
       padding: 20px;
       text-align: center;
-      margin: 15px 0;
+      margin: 15px;
       border-radius: 10px;
       color: #333;
+      position: relative;
     }
-    h1 {
-      font-size: 48px;
-      margin: 10px 0;
+    .video-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
     }
-    h2 {
-      color: #cc0033;
-      font-size: 32px;
+    .video img {
+      width: 100%;
+      max-height: 150px;
+      object-fit: cover;
+      border-radius: 10px;
+      filter: blur(5px);
     }
-    p {
-      font-size: 18px;
+    .lock {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 40px;
+      color: #fff;
+      text-shadow: 0 0 10px #cc0033;
+    }
+    h1 { font-size: 48px; margin: 10px 0; }
+    h2 { color: #cc0033; font-size: 32px; }
+    p { font-size: 18px; }
+    .insta-btn {
+      display: inline-flex;
+      align-items: center;
+      background: linear-gradient(135deg, #ff66b2, #cc0033);
+      color: white;
+      padding: 10px 20px;
+      border-radius: 30px;
+      text-decoration: none;
+      margin: 0 10px;
+      font-weight: 700;
+      transition: transform 0.3s;
+    }
+    .insta-btn img {
+      width: 24px;
+      height: 24px;
+      margin-right: 10px;
+    }
+    .insta-btn:hover {
+      transform: scale(1.05);
+    }
+    @media (max-width: 600px) {
+      .profile-pic { width: 120px; height: 120px; }
+      h1 { font-size: 32px; }
+      h2 { font-size: 24px; }
+      .plan-btn, .video-btn, .insta-btn { padding: 10px 15px; font-size: 14px; }
+      body::after { background: none; }
     }
   </style>
 </head>
@@ -132,30 +169,42 @@
     <a href="https://payments.cashfree.com/links?code=W8ltpktn8g90" class="plan-btn">Monthly - ₹999</a><br>
     <a href="https://payments.cashfree.com/links?code=x8ltpqu16vc0" class="plan-btn">Yearly - ₹4999</a><br>
     <a href="https://payments.cashfree.com/links?code=e8ltpuqqgvc0" class="plan-btn">Lifetime - ₹9999</a>
-    <p style="font-size: 14px; color: #666;">🔒 100% Secure Payments via Cashfree</p>
+    <p style="font-size: 16px; color: #cc0033; text-align: center; font-weight: 700;">🔒 100% Secure Payments via Cashfree</p>
   </div>
 
   <div class="videos">
     <h2>Exclusive Locked Videos (50+ Available)</h2>
-    <div class="video">
-      🔒 Naughty Night Tease – Video 1 - ₹500<br>
-      <a href="https://payments.cashfree.com/links?code=R8ltnc87mg90" class="video-btn">Unlock Now</a>
-    </div>
-    <div class="video">
-      🔒 Sensual Secrets – Video 2 - ₹500<br>
-      <a href="https://payments.cashfree.com/links?code=R8ltnc87mg90" class="video-btn">Unlock Now</a>
-    </div>
-    <div class="video">
-      🔒 Tempting Moments – Video 3 - ₹500<br>
-      <a href="https://payments.cashfree.com/links?code=R8ltnc87mg90" class="video-btn">Unlock Now</a>
-    </div>
-    <div class="video">
-      🔒 Forbidden Fantasies – Video 4 - ₹500<br>
-      <a href="https://payments.cashfree.com/links?code=R8ltnc87mg90" class="video-btn">Unlock Now</a>
-    </div>
-    <div class="video">
-      🔒 Playful Desires – Video 5 - ₹500<br>
-      <a href="https://payments.cashfree.com/links?code=R8ltnc87mg90" class="video-btn">Unlock Now</a>
+    <div class="video-grid">
+      <div class="video">
+        <img src="video-preview.jpg" alt="Locked Video" loading="lazy">
+        <div class="lock">🔒</div>
+        <p>Naughty Night Tease – Video 1 - ₹500</p>
+        <a href="https://payments.cashfree.com/links?code=R8ltnc87mg90" class="video-btn">Pay and Unlock</a>
+      </div>
+      <div class="video">
+        <img src="video-preview.jpg" alt="Locked Video" loading="lazy">
+        <div class="lock">🔒</div>
+        <p>Sensual Secrets – Video 2 - ₹500</p>
+        <a href="https://payments.cashfree.com/links?code=R8ltnc87mg90" class="video-btn">Pay and Unlock</a>
+      </div>
+      <div class="video">
+        <img src="video-preview.jpg" alt="Locked Video" loading="lazy">
+        <div class="lock">🔒</div>
+        <p>Tempting Moments – Video 3 - ₹500</p>
+        <a href="https://payments.cashfree.com/links?code=R8ltnc87mg90" class="video-btn">Pay and Unlock</a>
+      </div>
+      <div class="video">
+        <img src="video-preview.jpg" alt="Locked Video" loading="lazy">
+        <div class="lock">🔒</div>
+        <p>Forbidden Fantasies – Video 4 - ₹500</p>
+        <a href="https://payments.cashfree.com/links?code=R8ltnc87mg90" class="video-btn">Pay and Unlock</a>
+      </div>
+      <div class="video">
+        <img src="video-preview.jpg" alt="Locked Video" loading="lazy">
+        <div class="lock">🔒</div>
+        <p>Playful Desires – Video 5 - ₹500</p>
+        <a href="https://payments.cashfree.com/links?code=R8ltnc87mg90" class="video-btn">Pay and Unlock</a>
+      </div>
     </div>
   </div>
 
@@ -181,7 +230,10 @@
 
   <div class="social" style="text-align: center;">
     <h2>Follow Me</h2>
-    <a href="https://instagram.com/sidraexclusive" style="color: #cc0033; margin: 0 10px;">Instagram</a>
+    <a href="https://www.instagram.com/its_sidra_ansari90?igsh=MWp4OTYzemMyOThybQ==" class="insta-btn">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram Logo">
+      Instagram
+    </a>
     <a href="https://twitter.com/sidraexclusive" style="color: #cc0033; margin: 0 10px;">Twitter</a>
   </div>
 
